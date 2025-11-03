@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mercado de Trabalho</title>
+  <link type="text/css" rel="stylesheet" href="main.css" />
+</head>
+<body>
+  <button id="start">Iniciar</button>
+
+  <div id="banner">
+    <h2 style="text-align: left; flex: 1; font-family: Copperplate, Arial, sans-serif">MERCADO DE TRABALHO</h1>
+    <h1 id="open" style="text-align: center; flex: 1; display: none">Caixa aberto</h1>
+    <h3 style="text-align: right; flex: 1">Caixa 003</h2>
+  </div>
+
+  <section id="main" style="display: none">
+    <div class="row" style="gap: 16px;">
+      <div class="panel" style="flex: 0.7">
+        <div class="header"><h4>Código de barras</h4></div>
+        <div class="content text-center">
+          <span id="barcode" class="emph large">&nbsp;</span>
+        </div>
+      </div>
+      <div class="panel" style="flex: 1">
+        <div class="header"><h4>Nome</h4></div>
+        <div class="content text-center">
+          <span id="name" class="emph large" style="text-transform: uppercase">&nbsp;</span>
+        </div>
+      </div>
+      <div class="panel" style="flex: 0.3">
+        <div class="header"><h4>Idade</h4></div>
+        <div class="content text-center">
+          <span id="age" class="emph large">&nbsp;</span>
+        </div>
+      </div>
+      <div class="panel" style="flex: 1.5">
+        <div class="header"><h4>Profissão</h4></div>
+        <div class="content text-center">
+          <span id="profession" class="emph large">&nbsp;</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel column full" style="flex-basis: 0">
+      <div class="header"><h4>Lista de produtos</h4></div>
+      <div id="scroll" class="content column overflow" style="padding-top: 0">
+        <table id="log">
+          <thead>
+            <tr>
+              <th style="width: 72px">Item</th>
+              <th style="width: 120px">Código</th>
+              <th>Nome</th>
+              <th style="width: 72px">Idade</th>
+              <th>Profissão</th>
+              <th style="width: 120px">Total</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row" style="align-items: flex-start">
+      <div id="scanner" style="visibility: hidden">
+        <svg id="overlay" class="fullscreen"></svg>
+        <video id="camera" class="fullscreen" muted autoplay="autoplay" playsinline="playsinline" webkit-playsinline></video>
+      </div>
+
+      <div class="panel" style="margin-left: auto; flex-basis: 180px">
+        <div class="header"><h4>Subtotal</h4></div>
+        <div class="content text-right">
+          <span id="subtotal" class="emph huge"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="webrtc.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
