@@ -112,18 +112,20 @@ function drawOverlay(barcode) {
 
   const corners = barcode.cornerPoints;
   const points = `${corners[0].x},${corners[0].y} ${corners[1].x},${corners[1].y} ${corners[2].x},${corners[2].y} ${corners[3].x},${corners[3].y}`;
-  const polygon = document.createElementNS('http://www.w3.org/2000/svg','polygon');
+  const polygon = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
   polygon.setAttribute('points', points);
   polygon.setAttribute('class', 'barcode-polygon');
   $overlay.append(polygon);
 
-  const text = document.createElementNS('http://www.w3.org/2000/svg','text');
+  const aabb = polygon.getBBox();
+
+  const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
   text.innerHTML = barcode.rawValue;
-  text.setAttribute('x', corners[1].x);
-  text.setAttribute('y', corners[1].y);
-  text.setAttribute('fill', 'red');
-  text.setAttribute('fontSize', '20');
   $overlay.append(text);
+  const width = text.getBBox().width;
+  text.setAttribute('x', aabb.x + aabb.width / 2 - width / 2 - 5);
+  text.setAttribute('y', aabb.y + aabb.height + 20);
+  text.setAttribute('class', 'barcode-text');
 }
 
 //

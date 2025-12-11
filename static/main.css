@@ -26,6 +26,7 @@ body {
 
 #overlay {
   z-index: 998;
+  font-family: Arial, sans-serif;
 }
 .fullscreen {
   width: 100%;
@@ -37,6 +38,11 @@ body {
   fill: rgba(85, 240, 40, 0.5);
   stroke: green;
   stroke-width: 1;
+}
+.barcode-text {
+  font-family: Source Sans Pro, Arial, sans-serif;
+  font-size: 20px;
+  fill: rgba(85, 240, 40, 1);
 }
 
 #banner {
